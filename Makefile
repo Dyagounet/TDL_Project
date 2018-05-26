@@ -1,5 +1,5 @@
 run: compile
-		./eval.ste 1+3
+		./eval.ste 1 2
 
 compile:
 		gcc -Wall main.c liste.c eval.c -o eval.ste

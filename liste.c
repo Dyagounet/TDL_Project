@@ -1,4 +1,5 @@
 #include "liste.h"
+#include "eval.h"
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -45,7 +46,8 @@ liste libere_liste(liste l)
 liste ajout_elem_fin(liste l, char i)
 {
 	liste new = malloc(sizeof(struct elem));
-	new->val = i;
+  if(token_entier(i)!=(-1)) new->val=atoi(i);
+  else new->val=i;
 	new->suiv = NULL;
 	if(est_vide(l))
 	{

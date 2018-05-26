@@ -1,8 +1,6 @@
-#ifndef EVAL_H
-#define EVAL_H
-
 struct elem{
-	char val;
+	char car;
+  int val;
 	struct elem *suiv;
   char* type;
 };
@@ -15,6 +13,3 @@ int est_vide(liste l);
 void affiche_liste(liste l);
 liste libere_liste(liste l);
 liste ajout_elem_fin(liste l, char i);
-
-
-#endif

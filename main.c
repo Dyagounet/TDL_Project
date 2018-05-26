@@ -5,10 +5,14 @@
 
 int main(int argc, char **argv)
 {
+  int i=0;
 
   liste token=creer_liste();
 
-  token=string_to_token(token,argv[1]);
+  for(i=1;i<argc;i++)
+  {
+    token=string_to_token(token,argv[i]);
+  }
 
   affiche_liste(token);
 
