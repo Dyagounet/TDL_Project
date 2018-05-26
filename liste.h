@@ -1,6 +1,5 @@
 struct elem{
-	char car;
-  int val;
+	char val;
 	struct elem *suiv;
   char* type;
 };
