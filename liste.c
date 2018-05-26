@@ -17,15 +17,12 @@ int est_vide(liste l)
 
 void affiche_liste(liste l)
 {
-	if(est_vide(l))
+  if(l==NULL) printf("Liste vide.\n");
+  liste tmp=l;
+	while(tmp!=NULL)
 	{
-		printf("La liste est vide \n");
-		return;
-	}
-	while(l)
-	{
-		printf("%d ",l->val);
-		l = l->suiv;
+		printf("%c ",tmp->val);
+		tmp = tmp->suiv;
 	}
 	printf("\n");
 }
@@ -45,17 +42,23 @@ liste libere_liste(liste l)
 
 liste ajout_elem_fin(liste l, char i)
 {
-	liste new = malloc(sizeof(struct elem));
-  if(token_entier(i)!=(-1)) new->val=atoi(i);
-  else new->val=i;
+	liste new = malloc(sizeof(liste));
+  /*if(token_entier(i)!=(-1)) new->val=atoi(i);
+  else new->val=i;*/
+  new->val=i;
 	new->suiv = NULL;
-	if(est_vide(l))
+	if(l==NULL)
 	{
 		return new;
 	}
-	liste debut = l;
-	while(l->suiv)
-		l = l->suiv;
-	l->suiv = new;
-	return debut;
+  else
+  {
+  	liste tmp = l;
+  	while(l->suiv)
+    {
+  		tmp = tmp->suiv;
+    }
+  	tmp->suiv = new;
+  	return l;
+  }
 }

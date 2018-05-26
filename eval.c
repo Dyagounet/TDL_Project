@@ -2,20 +2,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-liste string_to_token(liste token,char* string)
-{
-  char c;
-  int i;
-
-  for(i=0;c!='\0';i++)
-  {
-    c=string[i];
-    if(c!=' ') token=ajout_elem_fin(token,c);
-  }
-
-  return token;
-}
-
 int token_op(char c)
 {
   switch (c) {
@@ -52,4 +38,21 @@ int token_parenthese(char c)
     case ')': {return 2;}
     default:{return 0;}
   }
+}
+
+liste string_to_token(liste token,char* string)
+{
+  char c;
+  int i;
+
+  for(i=0;c!='\0';i++)
+  {
+    c=string[i];
+    if(token_op(c)!=0 && token_entier(c)!=-1 && token_parenthese(c)!=0)
+      //if(c!=' ')
+      token=ajout_elem_fin(token,c);
+      token=ajout_elem_fin(token,'E');
+  }
+
+  return token;
 }
