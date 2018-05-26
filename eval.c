@@ -10,9 +10,8 @@ liste string_to_token(liste token,char* string)
   for(i=0;c!='\0';i++)
   {
     c=string[i];
+    if(c!=' ') token=ajout_elem_fin(token,c);
   }
-
-  token=ajout_elem_fin(token,c);
 
   return token;
 }
