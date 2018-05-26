@@ -15,6 +15,8 @@ liste_token* string_to_token(char* string)
 {
   liste_token* token;
 
+  
+
   return token;
 }
 
